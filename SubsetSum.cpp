@@ -1,0 +1,28 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+bool func(int i, int w, const vector<int> &a){ //a0~aN-1のうちの最初のi個から何個選んで、総和をwにできるかどうかをブール値で返す関数
+  //ベースケース
+  if(i==0){
+    if(w==0) return true;
+    else return false;
+  }
+
+  //a[i-1]を選ばない場合
+  if(func(i-1,w-a[i-1],a))return true;
+
+  //どちらもfalseの場合はfalse
+  return false;
+}
+
+int main(){
+  //入力
+  int N,W;
+  cin >> N >> W;
+  vector<int>a(N);
+  for(int i=0; i<N; ++i) cin >> a[i];
+  //再起的に解く
+  if(func(N,W,a))cout << "Yes" << endl;
+  else cout << "No" << endl;
+}
