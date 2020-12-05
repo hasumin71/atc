@@ -16,8 +16,8 @@ int main(){
 
   //ループ
   for(int i = 1; i < N; ++i){
-    if(i == 1) dp[i] = abs(h[i] - h[i - 1]);
-    else dp[i] = min(dp[i - 1] + abs(h[i] - h[i-1]),
+    if(i == 1) dp[i] = abs(h[i] - h[i - 1]); //ここなにやってるの？ 配列１のコスト
+    else dp[i] = min(dp[i - 1] + abs(h[i] - h[i-1]), //min(2,3)二つの値から小さい値を返す関数
         dp[i - 2] + abs(h[i] - h[i -2]));
   }
 
